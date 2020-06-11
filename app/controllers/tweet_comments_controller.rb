@@ -1,0 +1,2 @@
+class TweetCommentsController < ApplicationController
+end

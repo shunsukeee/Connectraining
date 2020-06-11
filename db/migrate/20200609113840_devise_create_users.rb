@@ -35,8 +35,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :introduction
       t.string :image_id
-      t.integer :status
-      t.boolean :customer_status, :default => "false"
+      t.integer :user_status
+      t.boolean :withdrawal_status, :default => "false"
       t.timestamps null: false
     end
 
