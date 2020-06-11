@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-	root "homes#top"
+	root "homes#home"
 	get "/torainer", to: "homes#torainer"
 	get "/torainee", to: "homes#torainee"
 	get "/homes/about", to: "homes#about"

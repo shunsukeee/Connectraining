@@ -9,6 +9,38 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+     <header class="navbar navbar-fixed-top" style="background-color: gray;">
+      <div class="container">
+        <nav class="nav navbar-nav navber-left">
+          <div class="logo" style="">
+            <span style="color: white;">Connectrainer</span>
+          </div>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+
+            <% if user_signed_in? %>
+
+              <li><%= link_to 'タイムライン', "" %></li>
+              <li><%= link_to 'マイページ', "" %></li>
+              <li><%= link_to '投稿', "" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+
+
+             <% elsif admin_signed_in? %>
+
+              
+
+            <% else %>
+
+              <li><%= link_to ' 新規登録', new_user_registration_path, class:"btn btn-default btn-xs"  %></li>
+              <li><%= link_to ' ログイン', new_user_session_path, class:"btn btn-default btn-xs"  %></li>
+              <li><%= link_to ' アバウト', homes_about_path, class:"btn btn-default btn-xs"  %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
   <body>
     <%= yield %>
   </body>
