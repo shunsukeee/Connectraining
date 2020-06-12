@@ -1,0 +1,14 @@
+<table class="table">
+
+		<tr><%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:'100x100' %></tr>
+
+		<tr>
+			<th><%= user.name %></th>
+		</tr>
+
+		<tr>
+			<th><%= user.introduction %></th>
+		</tr>
+
+		<tr><%= link_to "編集", edit_user_path(user.id) %></tr>
+</table>

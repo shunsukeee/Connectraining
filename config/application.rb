@@ -17,3 +17,5 @@ module Connectraining
     # the framework and any gems in your application.
   end
 end
+
+Refile.secret_key = '6b5bf63968682773b76d6c5f8be08ccc3497286572fb61304beed981e8c8abe27dc1fc7b7d7edc03a2cc9c86498c7211bb65e4225b7118ce0b01b2aa407c4f9c'
