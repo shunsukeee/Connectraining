@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+
+			<%= render 'users/user', user: @tweet.user %>
+
+		</div>
+
+		<div class="col-xs-9">
+			<table class="table">
+				<tbody>
+					<tr>
+						<td><%= @tweet.body %></td>
+						<td><%= attachment_image_tag @tweet, :tweet_image, size:'100x100' %></td>
+						<td><%= link_to "編集", edit_tweet_path %><td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
