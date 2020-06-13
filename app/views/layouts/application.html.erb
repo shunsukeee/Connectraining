@@ -13,7 +13,7 @@
       <div class="container">
         <nav class="nav navbar-nav navber-left">
           <div class="logo" style="">
-            <span style="color: white;">Connectrainer</span>
+            <span style="color: white;"><%= link_to 'Connectraining', root_path %></span>
           </div>
         </nav>
         <nav>
@@ -22,8 +22,8 @@
             <% if user_signed_in? %>
 
               <li><%= link_to 'タイムライン', "" %></li>
-              <li><%= link_to 'マイページ', user_path %></li>
-              <li><%= link_to '投稿', "" %></li>
+              <li><%= link_to 'マイページ', user_path(current_user) %></li>
+              <li><%= link_to '投稿', new_tweet_path %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
 
 

@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :image
+
+  has_many :tweets, dependent: :destroy
+
+  def active_for_authentication?
+    super && (self.withdrawal_status == false)
+  end
 end
