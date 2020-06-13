@@ -5,5 +5,19 @@
 			<%= render 'users/user', user: @user %>
 
 		</div>
+
+		<div class="col-xs-9">
+			<table class="table">
+				<tbody>
+					<% @tweets.each do |tweet| %>
+					<tr>
+						<td><%= tweet.body %></td>
+						<td><%= attachment_image_tag tweet, :tweet_image, size:'100x100' %></td>
+						<td><%= link_to "詳細", tweet_path(tweet.id) %><td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

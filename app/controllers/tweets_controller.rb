@@ -4,6 +4,10 @@ class TweetsController < ApplicationController
 		@tweet = Tweet.new
 	end
 
+	def show
+		
+	end
+
 	def create
 		@tweet = Tweet.new(tweet_params)
 		@tweet.user_id = current_user.id
@@ -12,7 +16,13 @@ class TweetsController < ApplicationController
 	end
 
 	def edit
-		
+		@tweet = Tweet.find(params[:id])
+	end
+
+	def update
+		@tweet = Tweet.find(params[:id])
+		@tweet.update(tweet_params)
+		redirect_to user_path(current_user)
 	end
 
 	private
