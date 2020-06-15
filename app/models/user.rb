@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :image
-
   has_many :tweets, dependent: :destroy
+  has_many :tweet_comments, dependent: :destroy
 
   # ====================自分がフォローしているユーザーとの関連 ===================================
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id

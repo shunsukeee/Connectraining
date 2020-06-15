@@ -19,6 +19,44 @@
 					</tr>
 				</tbody>
 			</table>
+
+			<table class="table">
+
+					<% @tweet.tweet_comments.each do |tweet_comment| %>
+
+					<tr>
+
+						<td><%= tweet_comment.user.name %></td>
+
+						<td><%= tweet_comment.comment %></td>
+
+						<% if (current_user == tweet_comment.user) %>
+
+						<td><%= link_to "Destroy",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn-sm btn-danger" %></td>
+
+						<% else %>
+
+						<td></td>
+
+						<% end %>
+
+					</tr>
+
+					<% end %>
+
+				</table>
+
+
+					<%= form_for [@tweet, @tweet_comment] do |f| %>
+					<div class="row">
+						<div class="col-sm-12">
+						<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+						</div>
+						</div>
+						<%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+						<% end %>
+
+		            </div>
 		</div>
 	</div>
 </div>

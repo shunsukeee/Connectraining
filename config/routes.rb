@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   				get :followers, on: :member
   		end
 
-      resources :tweets
+      resources :tweets do
+        resources :tweet_comments, only: [:create, :destroy]
+      end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
