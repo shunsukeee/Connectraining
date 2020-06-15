@@ -12,8 +12,10 @@
 					<tr>
 						<td><%= @tweet.body %></td>
 						<td><%= attachment_image_tag @tweet, :tweet_image, size:'100x100' %></td>
+						<% if current_user == @tweet.user %>
 						<td><%= link_to "編集", edit_tweet_path %><td>
 						<td><%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn-sm btn-danger" %><td>
+						<% end %>
 					</tr>
 				</tbody>
 			</table>
