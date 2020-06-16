@@ -28,4 +28,12 @@ class User < ApplicationRecord
     super && (self.withdrawal_status == false)
   end
   # =======================================
+
+  def User.search(search, user_or_tweet)
+      if user_or_tweet == "1"
+        User.where(['name LIKE ?', "%#{search}%"])
+      else
+        User.all
+      end
+    end
 end

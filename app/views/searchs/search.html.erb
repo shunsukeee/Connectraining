@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            
+                <br>
+
+                <h4>検索結果</h4>
+
+                <table class="table table-hover table-inverse">
+                    
+                    <tbody>
+
+                        <tr>
+                                <% if @user_or_tweet == "1"%>
+
+                                    <thead>
+
+
+                                        <tr>
+                                            <th>image</th>
+                                            <th>name</th>
+                                            <th></th>
+                                        </tr>
+
+                                    </thead>
+
+                                    <% @users.each do |user| %>
+
+                                    <tr>
+                                            <th><%= attachment_image_tag(user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100') %></th>
+                                            <th><%= user.name %></th>
+                                            <th><%=link_to "show", user_path(user.id) %></th>
+                                    </tr>
+                                    <% end %>
+                             
+                            <% elsif @user_or_tweet == "2" %>
+
+                                    <thead>
+
+
+                                        <tr>
+                                            <th>image</th>
+                                            <th>body</th>
+                                            <th></th>
+                                        </tr>
+
+                                    </thead>
+                                <% @tweets.each do |tweet| %>
+
+                                        <tr>
+                                            <th><%= attachment_image_tag(tweet.user, :image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100') %></th>
+                                            <th><%= tweet.body %></th>
+                                            <th><%=link_to "show", tweet_path(tweet.id) %></th>
+
+                                        </tr>
+                                <% end %>
+                            <% else %>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                </table>
+
+

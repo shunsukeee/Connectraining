@@ -17,6 +17,13 @@
             <span style="color: white;"><%= link_to 'Connectraining', root_path %></span>
           </div>
         </nav>
+        <div class="text-center">
+              <%= form_tag(search_path, :method => 'get') do %>
+              <%= text_field_tag :search %>
+                  <%= select_tag(:option, options_for_select([["user", "1"],["tweet","2"]]))%>
+                  <%= submit_tag '検索' %>
+              <% end %>
+        </div>
         <nav>
           <ul class="nav navbar-nav navbar-right">
 
