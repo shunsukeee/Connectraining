@@ -5,8 +5,16 @@ class TweetsController < ApplicationController
 	end
 
 	def index
-		@user = current_user
-		@tweets = Tweet.all
+		@user = User.find(current_user.id)
+		@users = @user.followings
+		@tweets = []
+		@users.each do |user|
+			tweets = Tweet.where(user_id: user.id).order(created_at: :desc)
+			@tweets.concat(tweets)
+		end
+		@tweets.concat(current_user.tweets)
+		@tweets.sort_by!{|tweet| tweet.created_at}.reverse!
+
 	end
 
 	def show
