@@ -1,1 +1,24 @@
-トレーニー一覧
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>トレー二ー一覧</h1>
+		</div>
+	</div>
+	<div class="row">
+		<% @users.each do |user| %>
+			<div class="col-xs-3">
+					<%= link_to user_path(user.id) do %>
+					<%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:'100x100' %>
+					<% end %>
+					<p><%= user.name %></p>
+						<% if user.user_status  == 1 %>
+						<p>
+	           			トレー二ー
+						<% else %>
+						トレーナー
+						<% end %>
+						</p>
+			</div>
+		<% end %>
+	</div>
+</div>
