@@ -13,3 +13,17 @@
  */
 @import "bootstrap";
 
+.navbar-brand {
+  background-size: contain;
+  height: 100px;
+  width: 130px;
+}
+
+li {
+	padding-left: 50px;
+}
+
+a {
+color:black;
+}
+

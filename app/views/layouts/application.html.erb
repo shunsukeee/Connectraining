@@ -5,34 +5,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
+    <script src="https://kit.fontawesome.com/0c89bdc520.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-     <header class="navbar navbar-fixed-top" style="background-color: gray;">
+    <header class="navbar navbar-fixed-top navbar-inverse" style="background-color:; ">
       <div class="container-fluid">
-        <nav class="nav navbar-nav navber-left">
-          <div class="logo" style="">
-            <span style="color: white;"><%= link_to 'Connectraining', root_path %></span>
-          </div>
+        <nav class="nav navbar navbar-left">
+          <%=link_to image_tag('logo.jpg', class: "navbar-brand"),root_path %>
         </nav>
-        <div class="text-center">
-              <%= form_tag(search_path, :method => 'get') do %>
-              <%= text_field_tag :search %>
-                  <%= select_tag(:option, options_for_select([["user", "1"],["tweet","2"]]))%>
-                  <%= submit_tag '検索' %>
-              <% end %>
-        </div>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
 
+
+
+        <nav class="nav navbar navbar-right">
             <% if user_signed_in? %>
 
-              <li><%= link_to 'タイムライン', tweets_path %></li>
-              <li><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li><%= link_to '投稿', new_tweet_path %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li class=""><%= link_to 'タイムライン', tweets_path %></li>
+              <li class=""><%= link_to 'マイページ', user_path(current_user) %></li>
+              <li class=""><%= link_to '投稿', new_tweet_path %></li>
+              <li class=""><%= link_to '検索', search_path %></li>
+              <li class=""><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
 
 
              <% elsif admin_signed_in? %>
@@ -43,9 +36,9 @@
 
               <li><%= link_to ' 新規登録', new_user_registration_path, class:"btn btn-default btn-xs"  %></li>
               <li><%= link_to ' ログイン', new_user_session_path, class:"btn btn-default btn-xs"  %></li>
+              <li><%= link_to '検索', search_path %></li>
               <li><%= link_to ' アバウト', homes_about_path, class:"btn btn-default btn-xs"  %></li>
             <% end %>
-          </ul>
         </nav>
       </div>
     </header>
