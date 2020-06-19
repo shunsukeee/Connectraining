@@ -1,0 +1,32 @@
+<% tweets.each do |tweet| %>
+	<div class="row border-bottom">
+		<div class="col-2">
+			<div class="row">
+			<%= attachment_image_tag tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
+			</div>
+			<div class="row">
+			<%= tweet.user.name %>
+			</div>
+		</div>
+		<div class="col-9">
+			<div class="row"><%= tweet.body %></div>
+			<div class="row"><%= attachment_image_tag tweet, :tweet_image, class: "img-fluid" %></div>
+		</div>
+		<div class="offset-10 col-2">
+
+				<% if tweet.favorited_by?(current_user) %>
+							<%= link_to tweet_favorites_path(tweet), method: :delete do %>
+							<i class="fa fa-heart" aria-hidden="true" style= "color: red"></i>
+							<%= tweet.favorites.count %> 
+							<% end %>
+						<% else %>
+							<%= link_to tweet_favorites_path(tweet), method: :post do %>
+							<i class="fa fa-heart-o" aria-hidden="true"></i>
+							<%= tweet.favorites.count %>
+							<% end %>
+				<% end %>
+
+				<%= link_to "詳細", tweet_path(tweet.id) %>
+		</div>
+	</div>
+<% end %>
