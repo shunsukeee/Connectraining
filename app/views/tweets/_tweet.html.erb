@@ -14,6 +14,8 @@
 		</div>
 		<div class="offset-10 col-2">
 
+			<% if user_signed_in? %>
+
 				<% if tweet.favorited_by?(current_user) %>
 							<%= link_to tweet_favorites_path(tweet), method: :delete do %>
 							<i class="fa fa-heart" aria-hidden="true" style= "color: red"></i>
@@ -25,6 +27,8 @@
 							<%= tweet.favorites.count %>
 							<% end %>
 				<% end %>
+
+			<% end %>
 
 				<%= link_to "詳細", tweet_path(tweet.id) %>
 		</div>

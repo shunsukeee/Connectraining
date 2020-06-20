@@ -17,3 +17,27 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+
+
+$(function() {
+    $('.home-torainer').slick({
+        dots: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    });
+});
+
+$(function() {
+    $('.home-torainee').slick({
+        dots: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    });
+});

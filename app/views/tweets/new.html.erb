@@ -1,14 +1,16 @@
-<%= form_for(@tweet) do |f| %>
-	<div class="field row">
-		<%= f.label "ツイート内容",class: "col-xs-offset-3 col-xs-6" %>
-		<%= f.text_area :body, class: "col-xs-offset-3 col-xs-6" %>
-	</div>
+<div class="container-fluid">
+	<%= form_for(@tweet) do |f| %>
+		<div class="row">
+			<%= f.label "ツイート内容",class: "offset-3 col-6" %>
+			<%= f.text_area :body, class: "offset-3 col-6" %>
+		</div>
 
-	<div class="field row">
-        <%= f.attachment_field :tweet_image, class: "col-xs-offset-3 col-xs-6" %>
-    </div>
+		<div class="row">
+	        <%= f.attachment_field :tweet_image, class: "offset-3 col-6" %>
+	    </div>
 
-	<div class="actions row">
-		<%= f.submit "ツイートする", class: "btn btn-primary col-xs-offset-3 col-xs-6" %>
-	</div>
-<% end %>
+		<div class="row">
+			<%= f.submit "ツイートする", class: "btn btn-primary offset-3 col-6" %>
+		</div>
+	<% end %>
+</div>

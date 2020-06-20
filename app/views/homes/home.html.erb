@@ -1,53 +1,53 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-12">
-			<h1>おすすめトレーナー</h1>
+		<div class="col-12">
+			<h1 class="text-center">おすすめトレーナー</h1>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row home-torainer">
 		<% @users_torainer.each do |torainer| %>
-			<div class="col-xs-3">
+			<div class="">
 				<% if torainer.user_status == 2 %>
-
 					<%= link_to user_path(torainer.id) do %>
-					<%= attachment_image_tag torainer, :image, fallback: "no_image.jpg", size:'100x100' %>
+					<%= attachment_image_tag torainer, :image, fallback: "no_image.jpg", class: "img-fluid home-slide-size" %>
 					<% end %>
-					<p><%= torainer.name %></p>
+					<p class="text-center"><%= torainer.name %></p>
 						<% if torainer.user_status  == 1 %>
-						<p>
+						<p class="text-center">
 	           			トレー二ー
+	           			</p>
 						<% else %>
+						<p class="text-center">
 						トレーナー
 						<% end %>
 						</p>
-
 				<% end %>
 			</div>
 		<% end %>
 	</div>
 
 	<div class="row">
-		<div class="col-xs-12">
-			<h1>おすすめトレー二ー</h1>
+		<div class="">
+			<h1 class="text-center">おすすめトレー二ー</h1>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row home-torainee">
 		<% @users_torainee.each do |torainee| %>
-			<div class="col-xs-3">
+			<div class="col-5">
 				<% if torainee.user_status == 1 %>
-
 					<%= link_to user_path(torainee.id) do %>
-					<%= attachment_image_tag torainee, :image, fallback: "no_image.jpg", size:'100x100' %>
+					<%= attachment_image_tag torainee, :image, fallback: "no_image.jpg", class: "img-fluid home-slide-size" %>
 					<% end %>
-					<p><%= torainee.name %></p>
+					<p class="text-center"><%= torainee.name %></p>
 						<% if torainee.user_status  == 1 %>
-						<p>
+						<p class="text-center">
 	           			トレー二ー
+	           			</p>
 						<% else %>
+						<p class="text-center">
 						トレーナー
 						<% end %>
 						</p>
-
 				<% end %>
 			</div>
 		<% end %>

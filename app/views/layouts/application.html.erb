@@ -8,6 +8,9 @@
     <script src="https://kit.fontawesome.com/0c89bdc520.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
     <header class="navbar navbar-fixed-top navbar-inverse" style="background-color:; ">
@@ -21,11 +24,11 @@
         <nav class="nav navbar navbar-right">
             <% if user_signed_in? %>
 
-              <li class=""><%= link_to 'タイムライン', tweets_path %></li>
-              <li class=""><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li class=""><%= link_to '投稿', new_tweet_path %></li>
-              <li class=""><%= link_to '検索', search_path %></li>
-              <li class=""><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'タイムライン', tweets_path, class:"btn" %></li>
+              <li><%= link_to 'マイページ', user_path(current_user), class:"btn" %></li>
+              <li><%= link_to '投稿', new_tweet_path, class:"btn" %></li>
+              <li><%= link_to '検索', search_path, class:"btn" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn" %></li>
 
 
              <% elsif admin_signed_in? %>
@@ -34,10 +37,10 @@
 
             <% else %>
 
-              <li><%= link_to ' 新規登録', new_user_registration_path, class:"btn btn-default btn-xs"  %></li>
-              <li><%= link_to ' ログイン', new_user_session_path, class:"btn btn-default btn-xs"  %></li>
-              <li><%= link_to '検索', search_path %></li>
-              <li><%= link_to ' アバウト', homes_about_path, class:"btn btn-default btn-xs"  %></li>
+              <li><%= link_to ' 新規登録', new_user_registration_path, class:"btn"  %></li>
+              <li><%= link_to ' ログイン', new_user_session_path, class:"btn"  %></li>
+              <li><%= link_to '検索', search_path, class:"btn" %></li>
+              <li><%= link_to ' アバウト', homes_about_path, class:"btn"  %></li>
             <% end %>
         </nav>
       </div>
