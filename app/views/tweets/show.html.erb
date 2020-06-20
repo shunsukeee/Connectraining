@@ -1,50 +1,57 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-3">
-
-			<%= render 'users/user', user: @tweet.user %>
-
+		<div class="col-2 offset-1">
+			<div class="row">
+				<%= attachment_image_tag @tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
+			</div>
+			<div class="row">
+				<%= @tweet.user.name %>
+			</div>
 		</div>
+		<div class="col-8">
+			<div class="">
+				<%= @tweet.body %>
+			</div>
+			<div class="row">
+				<%= attachment_image_tag @tweet, :tweet_image, class: "img-fluid" %>
+			</div>
+			<br>
+			<div class="row">
+				<% if current_user == @tweet.user %>
+					<%= link_to "編集", edit_tweet_path, class: "btn btn-success btn-lg" %>
+					<%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger btn-lg" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
-		<div class="col-xs-9">
-			<table class="table">
-				<tbody>
-					<tr>
-						<td><%= @tweet.body %></td>
-						<td><%= attachment_image_tag @tweet, :tweet_image, size:'100x100' %></td>
-						<% if current_user == @tweet.user %>
-						<td><%= link_to "編集", edit_tweet_path %><td>
-						<td><%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn-sm btn-danger" %><td>
-						<% end %>
-					</tr>
-				</tbody>
-			</table>
+		<br>
 
-			<table class="table">
-
-				<% @tweet.tweet_comments.each do |tweet_comment| %>
-
-					<tr>
-
-						<td><%= tweet_comment.user.name %></td>
-
-						<td><%= tweet_comment.comment %></td>
+		<% @tweet.tweet_comments.each do |tweet_comment| %>
+			<div class="row border-top">
+				<div class="offset-1 col-2">
+					<div class="row">
+						<%= attachment_image_tag tweet_comment.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
+					</div>
+					<div class="row">
+						<%= tweet_comment.user.name %>
+					</div>
+				</div>
+				<div class="col-8">
+					<%= tweet_comment.comment %>
+				</div>
+				<div class="ofset-11">
 
 						<% if (current_user == tweet_comment.user) %>
 
-						<td><%= link_to "Destroy",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn-sm btn-danger" %></td>
+					<%= link_to "Destroy",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger btn-lg" %>
 
 						<% else %>
 
-						<td></td>
-
 						<% end %>
-
-					</tr>
-
-				<% end %>
-
-			</table>
+				</div>
+			</div>
+		<% end %>
 
 			<% if user_signed_in? %>
 
@@ -61,5 +68,4 @@
 	            </div>
 	        <% end %>
 		</div>
-	</div>
 </div>

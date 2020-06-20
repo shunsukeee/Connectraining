@@ -28,9 +28,17 @@
 							<% end %>
 				<% end %>
 
+			<% else %>
+
+			<i class="fa fa-heart-o"></i>
+			<%= tweet.favorites.count %> 
+
 			<% end %>
 
-				<%= link_to "詳細", tweet_path(tweet.id) %>
+			<%= link_to tweet_path(tweet.id) do %>
+			<i class="far fa-comment"></i>
+			<%= tweet.tweet_comments.count %>
+			<% end %>
 		</div>
 	</div>
 <% end %>
