@@ -1,47 +1,48 @@
-
-<h4 class="rooms-title">ダイレクトメッセージ</h4>
-<% @entries.each do |entry| %>
-  <div class="user-name">
-  <strong>
-    <%= attachment_image_tag entry.user, :image, fallback: "no_image.jpg", size:'100x100' %>
-      <a>
-        <%= entry.user.name %>さん
-      </a>
-  </strong>
-  </div>
-<% end %>
-<hr>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |message| %>
-      <% if message.user_id == current_user.id %>
-        <div class="chat-box text-right">
-          <div class="chat-face">
-            <%= attachment_image_tag message.user, :image, fallback: "no_image.jpg", size:'100x100' %>
-          </div>
-          <div class="chat-hukidashi"> <strong><%= message.message %></strong> <br>
-            <%= message.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </div>
+<div class="container-fluid">
+  <% @entries.each do |entry| %>
+    <% if !(entry.user_id == current_user.id) %>
+      <div class="row border-bottom">
+        <div class="offset-5">
+          <strong>
+            <%= attachment_image_tag entry.user, :image, fallback: "no_image.jpg", size:'150x150', class: "rounded-circle" %>
+              <p>
+                <%= entry.user.name %>
+              </p>
+          </strong>
         </div>
-      <% else %>
-        <div class="chat-face text-left">
-            <%= attachment_image_tag message.user, :image, fallback: "no_image.jpg", size:'100x100' %>
-          </div>
-          <div class="chat-hukidashi"> <strong><%= message.message %></strong> <br>
-            <%= message.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </div>
-        </div>
-      <% end %>
+      </div>
     <% end %>
-    <% end %>
-  </div>
-  <div class="row">
-    <div class="offset-1">
-      <%= form_for @message do |f| %>
-        <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-          <%= f.hidden_field :room_id, value: @room.id %>
-            <%= f.submit "投稿",class: 'form-submit'%>
+  <% end %>
+    <div class="chat">
+      <% if @messages.present? %>
+        <% @messages.each do |message| %>
+          <% if message.user_id == current_user.id %>
+            <div class="chat-box text-right">
+              <div class="chat-hukidashi1"> <strong><%= message.message %></strong> <br>
+                <%= message.created_at.in_time_zone('Japan').strftime("%Y-%m-%d %H:%M")%>
+              </div>
+            </div>
+          <% else %>
+            <div class="chat-box text-left">
+              <div class="chat-hukidashi2"> <strong><%= message.message %></strong> <br>
+                <%= message.created_at.in_time_zone('Japan').strftime("%Y-%m-%d %H:%M")%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
-  </div>
+    </div>
+    <%= form_for @message do |f| %>
+      <div class="row">
+        <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , class: "offset-3 col-5" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "投稿",class: 'btn btn-outline-dark'%>
+      </div>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
