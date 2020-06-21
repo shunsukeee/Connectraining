@@ -13,7 +13,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
-    <header class="navbar navbar-fixed-top navbar-inverse" style="background-color:; ">
+    <header class="navbar navbar-fixed-top navbar-inverse border-bottom header" style="background-color:; ">
       <div class="container-fluid">
         <nav class="nav navbar navbar-left">
           <%=link_to image_tag('logo.jpg', class: "navbar-brand"),root_path, data: {"turbolinks" => false} %>
@@ -47,5 +47,8 @@
     </header>
   <body>
     <%= yield %>
+    <footer class="footer">
+      <p class="text-muted text-center">©️shunsuke_nakayama</p>
+    </footer>
   </body>
 </html>

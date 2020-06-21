@@ -3,7 +3,7 @@
 <% @entries.each do |entry| %>
   <div class="user-name">
   <strong>
-    <%= attachment_image_tag entry.user.image, class:"user-image" %>
+    <%= attachment_image_tag entry.user, :image, fallback: "no_image.jpg", size:'100x100' %>
       <a>
         <%= entry.user.name %>さん
       </a>
@@ -36,11 +36,12 @@
     <% end %>
     <% end %>
   </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿",class: 'form-submit'%>
-    <% end %>
+  <div class="row">
+    <div class="offset-1">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.submit "投稿",class: 'form-submit'%>
+      <% end %>
   </div>
 </div>

@@ -1,45 +1,66 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-4">
+    <div class="col-4 offset-4 card">
       <h2>ユーザー登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :name, "ユーザー名" %><br />
-          <%= f.text_field :name %>
+        <div class="row">
+          <%= f.label :name, "ユーザー名", class: "offset-1" %>
+        </div>
+        <div class="row">
+          <%= f.text_field :name, class: "col-10 offset-1" %>
         </div>
 
-        <div class="field">
-          <%= f.label :user_status, "ステータス" %><br />
-          <%= f.select :user_status,[["トレーニー", "1"], ["トレーナー", "2"]], include_blank: "選択して下さい" %>
+        <div class="row">
+          <%= f.label :user_status, "ステータス", class: "offset-1" %>
+        </div>
+        <div class="row">
+          <div class="offset-1">
+            <%= f.select :user_status,[["トレーニー", "1"], ["トレーナー", "2"]], include_blank: "選択して下さい" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="row">
+          <%= f.label :email, "メールアドレス", class: "offset-1" %>
+        </div>
+        <div class="row">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-10 offset-1" %>
         </div>
 
-        <div class="field">
-          <%= f.label :password, "パスワード" %>
+        <div class="row">
+          <%= f.label :password, "パスワード", class: "offset-1" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %>
+        </div>
+        <div class="row">
+          <%= f.password_field :password, autocomplete: "new-password", class: "col-10 offset-1" %>
         </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation, "パスワード(確認)" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class="row">
+          <%= f.label :password_confirmation, "パスワード(確認)", class: "offset-1" %><br />
+        </div>
+        <div class="row">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-10 offset-1" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "登録" %>
+        <br>
+
+        <div class="row">
+          <%= f.submit "登録", class: "btn btn-outline-dark col-10 offset-1" %>
         </div>
+        <br>
       <% end %>
-
-      <%= render "users/shared/links" %>
     </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-3 offset-4">
+      登録済みの方は<%= link_to "こちら", new_session_path(resource_name) %>
+      </div>
   </div>
 </div>
