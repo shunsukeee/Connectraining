@@ -27,7 +27,7 @@
               <li><%= link_to 'タイムライン', tweets_path, class:"btn" %></li>
               <li><%= link_to 'マイページ', user_path(current_user), class:"btn" %></li>
               <li><%= link_to 'ツイート', new_tweet_path, class:"btn" %></li>
-              <li><%= link_to '検索', search_path, class:"btn" %></li>
+              <li><%= link_to 'ユーザー一覧', search_path, class:"btn" %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn" %></li>
 
 
@@ -39,17 +39,14 @@
 
               <li><%= link_to ' 新規登録', new_user_registration_path, class:"btn"  %></li>
               <li><%= link_to ' ログイン', new_user_session_path, class:"btn"  %></li>
-              <li><%= link_to '検索', search_path, class:"btn" %></li>
-              <li><%= link_to ' アバウト', homes_about_path, class:"btn"  %></li>
+              <li><%= link_to 'ユーザー一覧', search_path, class:"btn" %></li>
+              <li><%= link_to ' 初めての方はこちら', homes_about_path, class:"btn"  %></li>
             <% end %>
         </nav>
       </div>
     </header>
   <body>
     <%= yield %>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>

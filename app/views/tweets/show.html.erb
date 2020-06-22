@@ -2,24 +2,22 @@
 	<div class="row">
 		<div class="col-2 offset-1">
 			<div class="row">
-				<%= attachment_image_tag @tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
+				<%= attachment_image_tag @tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle mt-5" %>
 			</div>
 			<div class="row">
 				<%= @tweet.user.name %>
 			</div>
 		</div>
-		<div class="col-8">
-			<div class="">
+		<div class="col-8 mt-5">
 				<%= @tweet.body %>
-			</div>
-			<div class="row">
+			<div class="row mt-5">
 				<%= attachment_image_tag @tweet, :tweet_image, class: "img-fluid" %>
 			</div>
 			<br>
 			<div class="row">
 				<% if current_user == @tweet.user %>
-					<%= link_to "編集", edit_tweet_path, class: "btn btn-success btn-lg" %>
-					<%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger btn-lg" %>
+					<%= link_to "編集", edit_tweet_path, class: "btn btn-success btn mx-auto" %>
+					<%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger btn mx-auto" %>
 				<% end %>
 			</div>
 		</div>
@@ -29,7 +27,7 @@
 
 		<% @tweet.tweet_comments.each do |tweet_comment| %>
 			<div class="row border-top">
-				<div class="offset-1 col-2">
+				<div class="offset-1 col-2 mt-3">
 					<div class="row">
 						<%= attachment_image_tag tweet_comment.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
 					</div>
@@ -37,18 +35,20 @@
 						<%= tweet_comment.user.name %>
 					</div>
 				</div>
-				<div class="col-8">
-					<%= tweet_comment.comment %>
-				</div>
-				<div class="ofset-11">
+				<div class="col-9">
+					<div class="row mt-5">
+						<%= tweet_comment.comment %>
 
-						<% if (current_user == tweet_comment.user) %>
+						<div class="offset-10">
+							<% if (current_user == tweet_comment.user) %>
 
-					<%= link_to "Destroy",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger btn-lg" %>
+							<%= link_to "コメント削除",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger mx-auto" %>
 
-						<% else %>
+							<% else %>
 
-						<% end %>
+							<% end %>
+						</div>
+					</div>
 				</div>
 			</div>
 		<% end %>
@@ -62,7 +62,7 @@
 					<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
 					</div>
 					</div>
-					<%= f.submit "送信", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+					<%= f.submit "送信", class: "btn btn-lg btn-outline-dark mt-3" %>
 					<% end %>
 
 	            </div>

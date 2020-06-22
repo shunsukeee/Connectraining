@@ -60,7 +60,9 @@ body {
 }
 
 .home-while {
-	padding-top: 50px;
+  padding-top: 50px;
+  text-shadow: -1px -2px 3px #808080;
+  font-size: 80px;
 }
 
 .home-while2 {
@@ -68,7 +70,11 @@ body {
 	padding-right: 10px;
 }
 
-
+.text-title {
+  color: #7fbfff;
+  background: #FFF;
+  text-shadow: 1px 1px 0 #FFF, 2px 2px 5px #99ccff, 4px 4px 10px #b2d8ff, 6px 6px 15px #dbedff, 8px 8px 20px #eaf4ff;
+}
 
 li {
 	padding-left: 50px;
