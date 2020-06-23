@@ -14,33 +14,10 @@
 			<div class="row mt-4 mb-2 tweet-text"><%= tweet.body %></div>
 			<div class="row mt-4 mb-2"><%= attachment_image_tag tweet, :tweet_image, class: "img-fluid" %></div>
 		</div>
-		<div class="offset-10 col-2">
+		<div class="offset-10 col-2" id="favorite-<%= tweet.id %>">
 
-			<% if user_signed_in? %>
+			<%= render 'favorites/favorite', tweet: tweet %>
 
-				<% if tweet.favorited_by?(current_user) %>
-							<%= link_to tweet_favorites_path(tweet), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style= "color: red"></i>
-							<%= tweet.favorites.count %> 
-							<% end %>
-						<% else %>
-							<%= link_to tweet_favorites_path(tweet), method: :post do %>
-							<i class="fa fa-heart-o" aria-hidden="true"></i>
-							<%= tweet.favorites.count %>
-							<% end %>
-				<% end %>
-
-			<% else %>
-
-			<i class="fa fa-heart-o"></i>
-			<%= tweet.favorites.count %> 
-
-			<% end %>
-
-			<%= link_to tweet_path(tweet.id) do %>
-			<i class="far fa-comment"></i>
-			<%= tweet.tweet_comments.count %>
-			<% end %>
 		</div>
 	</div>
 <% end %>
