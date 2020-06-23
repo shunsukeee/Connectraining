@@ -1,4 +1,4 @@
-# Connectrainer
+# Connectraining
 
 ## サイト概要
 トレーナーと繋がるSNS
