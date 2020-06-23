@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 	def home
-		@users_recommend = User.all.where(recommend_status: 1)
+		@users_recommend = User.where(recommend_status: 1)
 	end
 
 	def torainer
