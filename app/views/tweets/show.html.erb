@@ -4,11 +4,11 @@
 			<div class="row">
 				<%= attachment_image_tag @tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle mt-5" %>
 			</div>
-			<div class="row">
+			<div class="row tweet-user-text">
 				<%= @tweet.user.name %>
 			</div>
 		</div>
-		<div class="col-8 mt-5">
+		<div class="col-8 mt-5 tweet-text">
 				<%= @tweet.body %>
 			<div class="row mt-5">
 				<%= attachment_image_tag @tweet, :tweet_image, class: "img-fluid" %>
@@ -23,49 +23,53 @@
 		</div>
 	</div>
 
-		<br>
+	<br>
 
-		<% @tweet.tweet_comments.each do |tweet_comment| %>
-			<div class="row border-top">
-				<div class="offset-1 col-2 mt-3">
-					<div class="row">
-						<%= attachment_image_tag tweet_comment.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
-					</div>
-					<div class="row">
-						<%= tweet_comment.user.name %>
-					</div>
+	<% @tweet.tweet_comments.each do |tweet_comment| %>
+		<div class="row border-top">
+			<div class="offset-1 col-2 mt-3">
+				<div class="row">
+					<%= attachment_image_tag tweet_comment.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
 				</div>
-				<div class="col-9">
-					<div class="row mt-5">
+				<div class="row">
+					<%= tweet_comment.user.name %>
+				</div>
+			</div>
+			<div class="col-9">
+				<div class="row mt-5">
+					<div class="offset-1 comment-color">
 						<%= tweet_comment.comment %>
+					</div>
 
-						<div class="offset-10">
-							<% if (current_user == tweet_comment.user) %>
+					<div class="col-10">
+						<% if (current_user == tweet_comment.user) %>
 
-							<%= link_to "コメント削除",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger mx-auto" %>
+						<%= link_to "コメント削除",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger float-right" %>
 
-							<% else %>
+						<% else %>
 
-							<% end %>
-						</div>
+						<% end %>
 					</div>
 				</div>
 			</div>
-		<% end %>
-
-			<% if user_signed_in? %>
-
-
-				<%= form_for [@tweet, @tweet_comment] do |f| %>
-				<div class="row">
-					<div class="col-sm-12">
-					<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-					</div>
-					</div>
-					<%= f.submit "送信", class: "btn btn-lg btn-outline-dark mt-3" %>
-					<% end %>
-
-	            </div>
-	        <% end %>
 		</div>
+	<% end %>
+
+	<% if user_signed_in? %>
+
+
+		<%= form_for [@tweet, @tweet_comment] do |f| %>
+			<div class="row">
+				<div class="col-sm-12">
+				<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+				</div>
+			</div>
+			<div class="row float-right">
+			<%= f.submit "送信", class: "btn btn-lg btn-outline-dark mt-3 col-11" %>
+			</div>
+		<% end %>
+    <% end %>
+    <br>
+    <br>
+    <br>
 </div>
