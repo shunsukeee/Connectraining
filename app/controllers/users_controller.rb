@@ -31,6 +31,7 @@ end
 
 	def edit
 		@user = User.find(params[:id])
+
 	end
 
 	def update
@@ -63,6 +64,6 @@ end
 
 	private
 	def user_params
-		params.require(:user).permit(:name, :image, :introduction, :user_status)
+		params.require(:user).permit(:name, :image, :introduction, :user_status, :recommend_status)
 	end
 end

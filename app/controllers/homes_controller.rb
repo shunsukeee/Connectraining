@@ -1,7 +1,6 @@
 class HomesController < ApplicationController
 	def home
-		@users_torainer = User.order("RANDOM()").limit(6).where(user_status: 2)
-		@users_torainee = User.order("RANDOM()").limit(6).where(user_status: 1)
+		@users_recommend = User.all.where(recommend_status: 1)
 	end
 
 	def torainer

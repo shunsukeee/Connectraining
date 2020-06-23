@@ -20,7 +20,14 @@
                   <%= f.label :user_status, "ステータス" %><br />
                   <%= f.select :user_status,[["トレーニー", "1"], ["トレーナー", "2"]], include_blank: "選択して下さい" %>
                 </div>
-                <%= f.submit "保存" %>
+
+                <div class="field">
+                    <% if admin_signed_in? %>
+                        <%= f.label :recommend_status, "おすすめステータス" %><br />
+                        <%= f.select :recommend_status,[["おすすめ", "1"]], include_blank: "選択して下さい" %>
+                    <% end %>
+                </div>
+            <%= f.submit "保存" %>
 
             <% end %>
             <%= link_to "パスワード変更", edit_user_registration_path %>
