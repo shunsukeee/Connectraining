@@ -1,24 +1,26 @@
-# README
+# Connectrainer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+トレーナーと繋がるSNS
 
-Things you may want to cover:
+### サイトテーマ
+トレーナーと繋がれる事ができる
 
-* Ruby version
+### テーマを選んだ理由
+友人が筋トレを始めようとしても、何していいかわからない、この世の中ジムにも行けない人がいるのでトレーナーとすぐに繋がれたら凄く便利だし筋トレがもっと身近になるのではと考え、このテーマを選びました。
 
-* System dependencies
+### ターゲットユーザ
+パーソナルトレーナー、筋トレ好き、筋トレを始めようとする人
 
-* Configuration
+### 主な利用シーン
+筋トレを始めようとしてる人、パーソナルトレーニングをやりたい人、トレーナーと繋がりたい方
 
-* Database creation
+## 設計書
+- ワイヤーフレーム: https://drive.google.com/file/d/1dfPUVuHUXlvAN4TszzA8oNYLJoNK-bJT/view?usp=sharing
 
-* Database initialization
+- 詳細設計: https://docs.google.com/spreadsheets/d/1bEi9bUSoYUNf_tJcNZBiZQk6j3K-t8RaUYsQntlggSs/edit?usp=sharing
 
-* How to run the test suite
+### 機能一覧
+- 機能一覧: https://docs.google.com/spreadsheets/d/1y23YFhdffXqusVazp7fWllyDBTJLHcVbdkQWFr9F2CM/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
