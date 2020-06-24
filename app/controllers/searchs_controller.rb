@@ -5,7 +5,7 @@ class SearchsController < ApplicationController
 		if @user_or_tweet == "1"
 			@users = User.search(params[:search], @user_or_tweet)
 		else
-			@tweets = Tweet.search(params[:search], @user_or_tweet)
+			@tweets = Tweet.search(params[:search], @user_or_tweet).order(created_at: :desc)
 		end
 	end
 end
