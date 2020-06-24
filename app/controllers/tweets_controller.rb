@@ -33,8 +33,11 @@ class TweetsController < ApplicationController
 	def create
 		@tweet = Tweet.new(tweet_params)
 		@tweet.user_id = current_user.id
-		@tweet.save
-		redirect_to user_path(current_user)
+		if @tweet.save
+			redirect_to user_path(current_user)
+		else
+			render :new
+		end
 	end
 
 	def edit
@@ -48,8 +51,11 @@ class TweetsController < ApplicationController
 
 	def update
 		@tweet = Tweet.find(params[:id])
-		@tweet.update(tweet_params)
-		redirect_to user_path(current_user)
+		if @tweet.update(tweet_params)
+			redirect_to user_path(current_user)
+		else
+			render :edit
+		end
 	end
 
 	def destroy

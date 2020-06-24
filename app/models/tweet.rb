@@ -7,7 +7,7 @@ class Tweet < ApplicationRecord
 
     # =======バリデーション==========================
     validates :body, presence: true,
-                          length: { maximum: 100 }
+                        length: { maximum: 150 }
     # =============================================
 
     # =======いいね時のif文=============================

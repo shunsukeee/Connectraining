@@ -1,37 +1,58 @@
-<div class="container">
+<div class="container-fluid">
+  <br>
     <div class="row">
-        <div class="col-xs-8 col-xs-offset-4">
+        <div class="col-4 offset-4 card">
             <h2>編集</h2>
 
             <%= form_for(@user) do |f| %>
-                <div>
-                    <%= f.label :name, "ユーザー名" %><br />
-                    <%= f.text_field :name %>
+            <%= render 'layouts/error_messages', model: @user %>
+                <div class="row">
+                    <%= f.label :name, "ユーザー名", class: "offset-1" %>
+                </div>
+                <div class="row">
+                    <%= f.text_field :name, class: "col-10 offset-1" %>
+                </div>
+                <div class="row">
+                    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size:'100x100', class: "mx-auto mt-3 mb-3 rounded-circle" %>
+                </div>
+                <div class="row">
+                    <%= f.attachment_field :image, class: "mx-auto mt-3 mb-3" %>
                 </div>
                 <div>
-                    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size:'100x100' %>
-                    <%= f.attachment_field :image %>
+                <div class="row">
+                	<%= f.label :introduction, "自己紹介", class: "offset-1" %>
                 </div>
-                <div>
-                	<%= f.label :introduction, "自己紹介" %><br />
-                	<%= f.text_area :introduction %>
+                <div class="row">
+                	<%= f.text_area :introduction, class: "col-10 offset-1" %>
                 </div>
                 <div class="field">
-                  <%= f.label :user_status, "ステータス" %><br />
-                  <%= f.select :user_status,[["トレーニー", "1"], ["トレーナー", "2"]], include_blank: "選択して下さい" %>
+                  <%= f.label :user_status, "ステータス", class: "offset-1" %>
+                </div>
+                <div class="row">
+                    <div class="offset-1">
+                        <%= f.select :user_status,[["トレーニー", "1"], ["トレーナー", "2"]], include_blank: "選択して下さい" %>
+                    </div>
                 </div>
 
-                <div class="field">
+                <div class="row">
                     <% if admin_signed_in? %>
                         <%= f.label :recommend_status, "おすすめステータス" %><br />
                         <%= f.select :recommend_status,[["おすすめ", "1"]], include_blank: "選択して下さい" %>
                     <% end %>
                 </div>
-            <%= f.submit "保存" %>
+
+                <br>
+
+                <div class="row">
+                    <%= f.submit "保存", class: "btn btn-outline-dark col-10 offset-1" %>
+                </div>
 
             <% end %>
-            <%= link_to "パスワード変更", edit_user_registration_path %>
-            <%= link_to "退会する", hide_user_path %>
+            <br>
+            <div class="row">
+                <%= link_to "パスワード変更", edit_user_registration_path, class: "btn btn-outline-secondary mx-auto" %>
+                <%= link_to "退会する", hide_user_path, class: "btn btn-outline-danger mx-auto" %>
+            </div>
         </div>
     </div>
 </div>

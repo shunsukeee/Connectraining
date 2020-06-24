@@ -10,6 +10,7 @@ class User < ApplicationRecord
   # ==========バリデーション=================
   validates :name, presence: true
   validates :user_status, presence: true
+  validates :introduction, length: { maximum: 100 }
   #  ======================================
 
   attachment :image

@@ -1,5 +1,6 @@
 <div class="container-fluid">
 	<%= form_for(@tweet) do |f| %>
+	<%= render 'layouts/error_messages', model: @tweet %>
 		<div class="row mt-5">
 			<%= f.label "ツイート内容",class: "offset-3 col-6" %>
 			<%= f.text_area :body, class: "offset-3 col-6" %>
