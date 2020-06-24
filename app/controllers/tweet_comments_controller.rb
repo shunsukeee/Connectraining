@@ -10,7 +10,7 @@ class TweetCommentsController < ApplicationController
 
 	def destroy
 		tweet = Tweet.find(params[:tweet_id])
-		comment = current_user.tweet_comments.find(params[:id])
+		comment = TweetComment.find(params[:id])
 		comment.destroy
 		redirect_back(fallback_location: root_path)
 	end

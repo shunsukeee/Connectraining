@@ -31,7 +31,11 @@ end
 
 	def edit
 		@user = User.find(params[:id])
-
+		if admin_signed_in?
+		elsif current_user == @user
+		else
+			redirect_to user_path(@user.id)
+		end
 	end
 
 	def update
@@ -42,14 +46,23 @@ end
 
 	def hide
 		@user = User.find(params[:id])
+		if admin_signed_in?
+		elsif current_user == @user
+		else
+			redirect_to root_path
+		end
 	end
 
 	def hide_update
 		@user = User.find(params[:id])
 		@user.update(withdrawal_status: true)
-		reset_session
-		flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-		redirect_to root_path
+		if admin_signed_in?
+			redirect_to users_path
+		else
+			reset_session
+			flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+			redirect_to root_path
+		end
 	end
 
 	def follows

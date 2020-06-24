@@ -7,6 +7,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # ==============================================
 
+  # ==========バリデーション=================
+  validates :name, presence: true
+  validates :user_status, presence: true
+  #  ======================================
+
   attachment :image
   has_many :tweets, dependent: :destroy
   has_many :tweet_comments, dependent: :destroy

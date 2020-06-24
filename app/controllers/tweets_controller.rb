@@ -1,26 +1,33 @@
 class TweetsController < ApplicationController
 
 	def new
-		@tweet = Tweet.new
+		if user_signed_in?
+			@tweet = Tweet.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	def index
-		@user = User.find(current_user.id)
-		@users = @user.followings
-		@tweets = []
-		@users.each do |user|
-			tweets = Tweet.where(user_id: user.id).order(created_at: :desc)
-			@tweets.concat(tweets)
+		if user_signed_in?
+			@user = User.find(current_user.id)
+			@users = @user.followings
+			@tweets = []
+			@users.each do |user|
+				tweets = Tweet.where(user_id: user.id).order(created_at: :desc)
+				@tweets.concat(tweets)
+			end
+			@tweets.concat(current_user.tweets)
+			@tweets.sort_by!{|tweet| tweet.created_at}.reverse!
+		else
+			redirect_to root_path
 		end
-		@tweets.concat(current_user.tweets)
-		@tweets.sort_by!{|tweet| tweet.created_at}.reverse!
-
 	end
 
 	def show
 		@tweet = Tweet.find(params[:id])
 		@tweet_comment = TweetComment.new
-    	@tweet_comments = TweetComment.all
+	    @tweet_comments = TweetComment.all
 	end
 
 	def create
@@ -32,6 +39,11 @@ class TweetsController < ApplicationController
 
 	def edit
 		@tweet = Tweet.find(params[:id])
+		if admin_signed_in?
+		elsif current_user.id == @tweet.user_id
+		else
+			redirect_to tweets_path
+		end
 	end
 
 	def update
@@ -43,7 +55,12 @@ class TweetsController < ApplicationController
 	def destroy
 		@tweet = Tweet.find(params[:id])
 		@tweet.destroy
-		redirect_to user_path(current_user)
+		if admin_signed_in?
+			redirect_to root_path
+		else
+			redirect_to user_path(current_user)
+		end
+
 	end
 
 	private

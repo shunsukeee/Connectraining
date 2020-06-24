@@ -15,9 +15,13 @@
 			</div>
 			<br>
 			<div class="row">
-				<% if current_user == @tweet.user %>
+				<%if admin_signed_in? %>
 					<%= link_to "編集", edit_tweet_path, class: "btn btn-success btn mx-auto" %>
 					<%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger btn mx-auto" %>
+				<% elsif current_user == @tweet.user %>
+					<%= link_to "編集", edit_tweet_path, class: "btn btn-success btn mx-auto" %>
+					<%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-danger btn mx-auto" %>
+				<% else %>
 				<% end %>
 			</div>
 		</div>
@@ -42,9 +46,13 @@
 					</div>
 
 					<div class="col-10">
-						<% if (current_user == tweet_comment.user) %>
+						<%if admin_signed_in? %>
 
-						<%= link_to "コメント削除",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger float-right" %>
+							<%= link_to "コメント削除",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger float-right" %>
+
+						<% elsif current_user == tweet_comment.user %>
+
+							<%= link_to "コメント削除",tweet_tweet_comment_path(@tweet.id,tweet_comment.id), method: :delete, "data-confirm" => "本当に削除してもよろしいですか？", class: "btn btn-danger float-right" %>
 
 						<% else %>
 
