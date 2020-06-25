@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      tweet: ツイート
+      tweet_comment: コメント
+      message: メッセージ
+      admin: 管理者
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        name: ユーザー名
+        introduction: 自己紹介文
+        image_id: プロフィール画像
+        user_status: ステータス
+      tweet:
+        body: ツイート内容
+      tweet_comment:
+        comment: コメント
+      message:
+        message: メッセージ

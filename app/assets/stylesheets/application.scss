@@ -19,6 +19,13 @@ body {
   background-color: #fafafa;
 }
 
+.field_with_errors {
+  display: contents;
+  input, textarea {
+    @extend .is-invalid;
+  }
+}
+
 .header {
 	top: 0;
   position: sticky;

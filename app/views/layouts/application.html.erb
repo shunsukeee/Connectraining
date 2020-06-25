@@ -50,6 +50,9 @@
       </div>
     </header>
   <body>
+    <% if flash[:notice] %>
+      <p class="text-center alert alert-warning"><%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
     <br>
     <br>
