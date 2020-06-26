@@ -68,6 +68,10 @@
 			<tr>
 				<th class="text-center card"><%= link_to edit_user_path(user.id) do%><i class="fas fa-wrench"></i><% end %></th>
 			</tr>
+		<% elsif admin_signed_in? %>
+			<tr>
+				<th class="text-center card"><%= link_to edit_user_path(user.id) do%><i class="fas fa-wrench"></i><% end %></th>
+			</tr>
 		<% end %>
 	</tbody>
 </table>
