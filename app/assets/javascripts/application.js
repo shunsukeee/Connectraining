@@ -21,7 +21,7 @@
 
 
 $(function() {
-    $('.home-torainer').slick({
+    $('.home-user-slide').slick({
         dots: true,
         infinite: true,
         autoplay: true,
@@ -31,13 +31,13 @@ $(function() {
     });
 });
 
+
 $(function() {
-    $('.home-torainee').slick({
-        dots: true,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        slidesToShow: 4,
-        slidesToScroll: 1
-    });
-});
+ 
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+ 
+ });

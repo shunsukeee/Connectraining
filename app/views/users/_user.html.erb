@@ -64,9 +64,10 @@
 		</tr>
 
 		
-
-		<tr>
-			<th class="text-center card"><%= link_to edit_user_path(user.id) do%><i class="fas fa-wrench"></i><% end %></th>
-		</tr>
+		<% if (current_user == user) %>
+			<tr>
+				<th class="text-center card"><%= link_to edit_user_path(user.id) do%><i class="fas fa-wrench"></i><% end %></th>
+			</tr>
+		<% end %>
 	</tbody>
 </table>

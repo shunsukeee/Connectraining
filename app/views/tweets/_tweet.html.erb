@@ -2,7 +2,7 @@
 	<div class="row border-top shadow">
 		<div class="col-2">
 			<div class="row">
-			<%= link_to user_path(tweet.user_id) , class: "d-block mx-auto mt-2 mb-2" do %>
+			<%= link_to user_path(tweet.user_id) , class: "d-block mx-auto mt-2 mb-2", data: {"turbolinks" => false} do %>
 			<%= attachment_image_tag tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
 			<% end %>
 			</div>
