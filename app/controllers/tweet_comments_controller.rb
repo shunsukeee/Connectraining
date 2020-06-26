@@ -4,14 +4,19 @@ class TweetCommentsController < ApplicationController
 		tweet = Tweet.find(params[:tweet_id])
 		comment = current_user.tweet_comments.new(tweet_comment_params)
 		comment.tweet_id = tweet.id
-		comment.save
-		redirect_back(fallback_location: root_path)
+		if comment.save
+			flash[:notice] = "コメントを送信しました。"
+			redirect_back(fallback_location: root_path)
+		else
+			render "tweet/show"
+		end
 	end
 
 	def destroy
 		tweet = Tweet.find(params[:tweet_id])
 		comment = TweetComment.find(params[:id])
 		comment.destroy
+		flash[:notice] = "コメントを削除しました。"
 		redirect_back(fallback_location: root_path)
 	end
 
