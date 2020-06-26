@@ -30,27 +30,27 @@
         <nav class="nav navbar navbar-right" id="sp-menu">
             <% if user_signed_in? %>
 
-              <li><%= link_to 'Timeline', tweets_path, class: "btn", data: {"turbolinks" => false} %></li>
-              <li><%= link_to 'Mypage', user_path(current_user), class: "btn", data: {"turbolinks" => false} %></li>
-              <li><%= link_to 'Tweet', new_tweet_path, class: "btn", data: {"turbolinks" => false} %></li>
-              <li><%= link_to 'Userlist', users_path, class: "btn", data: {"turbolinks" => false} %></li>
-              <li><%= link_to 'Search', search_path, class: "btn", data: {"turbolinks" => false} %></li>
-              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Timeline', tweets_path, class: "btn" %></li>
+              <li><%= link_to 'Mypage', user_path(current_user), class: "btn" %></li>
+              <li><%= link_to 'Tweet', new_tweet_path, class: "btn" %></li>
+              <li><%= link_to 'Userlist', users_path, class: "btn" %></li>
+              <li><%= link_to 'Search', search_path, class: "btn" %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn" %></li>
 
 
              <% elsif admin_signed_in? %>
 
-              <li><%= link_to 'Userlist', users_path, class:"btn" %></li>
-              <li><%= link_to 'Search', search_path, class:"btn" %></li>
-              <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class:"btn" %></li>
+              <li><%= link_to 'Userlist', users_path, class: "btn" %></li>
+              <li><%= link_to 'Search', search_path, class: "btn" %></li>
+              <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: "btn" %></li>
 
             <% else %>
 
-              <li><%= link_to 'Signup', new_user_registration_path, class:"btn"  %></li>
-              <li><%= link_to 'Login', new_user_session_path, class:"btn"  %></li>
-              <li><%= link_to 'Userlist', users_path, class:"btn" %></li>
-              <li><%= link_to 'Search', search_path, class:"btn" %></li>
-              <li><%= link_to 'About', homes_about_path, class:"btn"  %></li>
+              <li><%= link_to 'Signup', new_user_registration_path, class: "btn"  %></li>
+              <li><%= link_to 'Login', new_user_session_path, class: "btn"  %></li>
+              <li><%= link_to 'Userlist', users_path, class: "btn" %></li>
+              <li><%= link_to 'Search', search_path, class: "btn" %></li>
+              <li><%= link_to 'About', homes_about_path, class: "btn"  %></li>
             <% end %>
         </nav>
       </div>
