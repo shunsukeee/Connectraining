@@ -20,7 +20,7 @@
 						<%= fields_for @entry do |e| %>
 						<%= e.hidden_field :user_id, value: @user.id %>
 						<% end %>
-						<%= f.submit "チャット", class:"btn btn-info mt-2 mb-4 mr-5"%>
+						<%= f.submit "チャット", class: "btn btn-info mt-2 mb-4 mr-5", data: {"turbolinks" => false} %>
 						<% end %>
 					<% end %>
 				<% end %>

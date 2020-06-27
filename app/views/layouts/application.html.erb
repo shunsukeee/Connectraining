@@ -7,7 +7,7 @@
 
     <script src="https://kit.fontawesome.com/0c89bdc520.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -30,27 +30,27 @@
         <nav class="nav navbar navbar-right" id="sp-menu">
             <% if user_signed_in? %>
 
-              <li><%= link_to 'Timeline', tweets_path, class: "btn" %></li>
-              <li><%= link_to 'Mypage', user_path(current_user), class: "btn" %></li>
-              <li><%= link_to 'Tweet', new_tweet_path, class: "btn" %></li>
-              <li><%= link_to 'Userlist', users_path, class: "btn" %></li>
-              <li><%= link_to 'Search', search_path, class: "btn" %></li>
-              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn" %></li>
+              <li><%= link_to 'Timeline', tweets_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Mypage', user_path(current_user), class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Tweet', new_tweet_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Userlist', users_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Search', search_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn", data: {"turbolinks" => false} %></li>
 
 
              <% elsif admin_signed_in? %>
 
-              <li><%= link_to 'Userlist', users_path, class: "btn" %></li>
-              <li><%= link_to 'Search', search_path, class: "btn" %></li>
-              <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: "btn" %></li>
+              <li><%= link_to 'Userlist', users_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Search', search_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: "btn", data: {"turbolinks" => false} %></li>
 
             <% else %>
 
-              <li><%= link_to 'Signup', new_user_registration_path, class: "btn"  %></li>
-              <li><%= link_to 'Login', new_user_session_path, class: "btn"  %></li>
-              <li><%= link_to 'Userlist', users_path, class: "btn" %></li>
-              <li><%= link_to 'Search', search_path, class: "btn" %></li>
-              <li><%= link_to 'About', homes_about_path, class: "btn"  %></li>
+              <li><%= link_to 'Signup', new_user_registration_path, class: "btn", data: {"turbolinks" => false}  %></li>
+              <li><%= link_to 'Login', new_user_session_path, class: "btn", data: {"turbolinks" => false}  %></li>
+              <li><%= link_to 'Userlist', users_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Search', search_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'About', homes_about_path, class: "btn", data: {"turbolinks" => false}  %></li>
             <% end %>
         </nav>
       </div>
