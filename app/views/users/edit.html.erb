@@ -13,7 +13,23 @@
                     <%= f.text_field :name, class: "col-10 offset-1" %>
                 </div>
                 <div class="row">
-                    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size:'100x100', class: "mx-auto mt-3 mb-3 rounded-circle" %>
+                    <script>
+                      $(function() {
+                        function readURL(input) {
+                            if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                        $('#img_prev').attr('src', e.target.result);
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                        $("#user_image").change(function(){
+                            readURL(this);
+                        });
+                      });
+                    </script>
+                    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size:'100x100', id: "img_prev", class: "mx-auto mt-3 mb-3 rounded-circle" %>
                 </div>
                 <div class="row">
                     <%= f.attachment_field :image, class: "mx-auto mt-3 mb-3" %>
