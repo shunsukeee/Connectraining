@@ -29,7 +29,7 @@
                         });
                       });
                     </script>
-                    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size:'100x100', id: "img_prev", class: "mx-auto mt-3 mb-3 rounded-circle" %>
+                    <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size:'100x100', id: "img_prev", class: "mx-auto mt-3 mb-3 rounded-circle profile-img" %>
                 </div>
                 <div class="row">
                     <%= f.attachment_field :image, class: "mx-auto mt-3 mb-3" %>

@@ -15,7 +15,7 @@
 			<% @admin_users.each do |user| %>
 				<div class="col-lg-3 card  mt-5 mx-auto">
 					<%= link_to user_path(user.id), data: {"turbolinks" => false} do %>
-					<%= attachment_image_tag user, :image, fallback: "no_image.jpg", class: "img-fluid" %>
+					<%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:"253x253" %>
 					<% end %>
 					<p><%= user.name %></p>
 						<% if user.user_status  == 1 %>
@@ -36,7 +36,7 @@
 			<% @users.each do |user| %>
 				<div class="col-lg-3 card  mt-5 mx-auto">
 					<%= link_to user_path(user.id), data: {"turbolinks" => false} do %>
-					<%= attachment_image_tag user, :image, fallback: "no_image.jpg", class: "img-fluid" %>
+					<%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:"253x253" %>
 					<% end %>
 					<p><%= user.name %></p>
 					<% if user.user_status  == 1 %>
