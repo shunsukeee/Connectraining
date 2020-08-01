@@ -18,7 +18,7 @@
 		<% @users_recommend.each do |user| %>
 			<div class="">
 				<%= link_to user_path(user.id) do %>
-				<%= attachment_image_tag user, :image, fallback: "no_image.jpg", class: "home-while2 profile-img", size:"300x300" %>
+				<%= attachment_image_tag user, :image, fallback: "no_image.jpg", class: "home-while2", size:"300x300" %>
 				<% end %>
 				<p class="text-center"><%= user.name %></p>
 					<% if user.user_status  == 1 %>

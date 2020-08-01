@@ -8,27 +8,28 @@
             <%= submit_tag '検索', class: "btn btn-outline-dark" %>
             <% end %>
         </div>
-        <% if @user_or_tweet == "1"%>
+    </div>
+    <% if @user_or_tweet == "1"%>
 
-            <div class="row">
-                <% @users.each do |user| %>
-                    <div class="col-lg-3 card  mt-5 mx-auto">
-                        <%= link_to user_path(user.id) do %>
-                        <%= attachment_image_tag user, :image, fallback: "no_image.jpg", class: "img-fluid" %>
-                        <% end %>
-                        <p><%= user.name %></p>
-                        <% if user.user_status  == 1 %>
-                            <p>
-                            トレー二ー
-                        <% else %>
-                            トレーナー
-                        <% end %>
-                            </p>
-                    </div>
-                <% end %>
-            </div>
-         
-        <% elsif @user_or_tweet == "2" %>
+        <div class="row">
+            <% @users.each do |user| %>
+                <div class="col-lg-3 card  mt-5 mx-auto">
+                    <%= link_to user_path(user.id) do %>
+                    <%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:"253x253" %>
+                    <% end %>
+                    <p><%= user.name %></p>
+                    <% if user.user_status  == 1 %>
+                        <p>
+                        トレー二ー
+                    <% else %>
+                        トレーナー
+                    <% end %>
+                        </p>
+                </div>
+            <% end %>
+        </div>
+     
+    <% elsif @user_or_tweet == "2" %>
         <div class="col-10 offset-1">
             <% @tweets.each do |tweet| %>
                 <div class="row border-top shadow">
@@ -56,7 +57,6 @@
             <% else %>
             <% end %>
         </div>
-    </div>
 </div>
 
 
