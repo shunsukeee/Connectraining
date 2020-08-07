@@ -26,4 +26,5 @@
 ### AWSインフラ設計書
 https://docs.google.com/spreadsheets/d/1UJPYynEaeqlHu_X_rGchlu5f87lFuNeavIQlEw9wXxw/edit?usp=sharing
 
-
+### AWS構成図
+https://drive.google.com/file/d/1SJk8pNJvWAMXL1uPbpT1ZoBUXXARFyfF/view?usp=sharing
