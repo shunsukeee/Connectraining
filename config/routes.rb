@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 	get "/torainee", to: "homes#torainee"
 	get "/homes/about", to: "homes#about"
   	devise_for :admins
+
+    namespace :admins do
+      resources :users, :only => [:index, :show, :edit, :update]
+      resources :tweets, :only => [:index, :show, :edit, :update, :destroy]
+    end
   	devise_for :users
   		resources :users, :only => [:index, :show, :edit, :update] do
   			get :hide, on: :member
