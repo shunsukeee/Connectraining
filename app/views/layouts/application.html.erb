@@ -40,7 +40,7 @@
 
              <% elsif admin_signed_in? %>
 
-              <li><%= link_to 'Userlist', users_path, class: "btn", data: {"turbolinks" => false} %></li>
+              <li><%= link_to 'Userlist', admins_users_path, class: "btn", data: {"turbolinks" => false} %></li>
               <li><%= link_to 'Search', search_path, class: "btn", data: {"turbolinks" => false} %></li>
               <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: "btn", data: {"turbolinks" => false} %></li>
 

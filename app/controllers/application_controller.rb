@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resouce)
   	case resouce
   	when Admin
-  		users_path
+  		admins_users_path
 
   	when User
   		user_path(resouce)
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(resouce)
   	case resouce
   	when Admin
-  		users_path
+  		admins_users_path
 
   	when User
   		user_path(resouce)
