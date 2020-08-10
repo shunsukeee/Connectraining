@@ -65,7 +65,7 @@ class TweetsController < ApplicationController
 		@tweet.destroy
 		flash[:notice] = "ツイートを削除しました。"
 		if admin_signed_in?
-			redirect_to root_path
+			redirect_to admins_users_path
 		else
 			redirect_to user_path(current_user)
 		end
