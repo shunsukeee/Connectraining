@@ -20,7 +20,10 @@
 		<% @users.each do |user| %>
 			
 			<tr>
-				<th><%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:'100x100' %></th>
+				<th><%=link_to user_path(user.id) do%>
+					<%= attachment_image_tag user, :image, fallback: "no_image.jpg", size:'100x100', class: "rounded-circle" %>
+					<% end %>
+				</th>
 				<th><%= user.name %></th>
 				<th>
 					<% if user.user_status == 1 %>
@@ -38,7 +41,6 @@
 				        <% end %>
 			        <% end %>
 			    <% end %>
-		        <th><%=link_to "詳細", user_path(user.id) %></th>
 		    </tr>
 		    <% end %>
 		</table>
