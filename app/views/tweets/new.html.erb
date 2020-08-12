@@ -1,4 +1,6 @@
 <div class="container-fluid">
+    <% breadcrumb :new_tweet, @tweet %>
+    <%= breadcrumbs pretext: " ",separator: " &rsaquo; " %>
 	<%= form_for(@tweet) do |f| %>
 	<%= render 'layouts/error_messages', model: @tweet %>
 		<div class="row mt-5">

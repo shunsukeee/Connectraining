@@ -68,6 +68,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.1.1'
 gem 'rails-i18n'
+gem "gretel"
 
 gem 'dotenv-rails'
 group :production do
