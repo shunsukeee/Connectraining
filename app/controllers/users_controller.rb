@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 	
 	def index
 		@users = User.page(params[:page]).reverse_order.per(8).where(withdrawal_status: false)
-		@admin_users = User.page(params[:page]).reverse_order.per(8)
 	end
 
 	def show

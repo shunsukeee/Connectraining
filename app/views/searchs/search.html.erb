@@ -23,12 +23,10 @@
                     <% end %>
                     <p><%= user.name %></p>
                     <% if user.user_status  == 1 %>
-                        <p>
-                        トレー二ー
+                        <p>トレー二ー</p>
                     <% else %>
-                        トレーナー
+                        <p>トレーナー</p>
                     <% end %>
-                        </p>
                 </div>
             <% end %>
         </div>
@@ -39,9 +37,9 @@
                 <div class="row border-top shadow">
                     <div class="col-2">
                         <div class="row">
-                        <%= link_to user_path(tweet.user_id) , class: "d-block mx-auto mt-2 mb-2" do %>
-                        <%= attachment_image_tag tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
-                        <% end %>
+                            <%= link_to user_path(tweet.user_id) , class: "d-block mx-auto mt-2 mb-2" do %>
+                            <%= attachment_image_tag tweet.user, :image, size:'100x100', fallback: "no_image.jpg", class: "rounded-circle" %>
+                            <% end %>
                         </div>
                         <div class="row mx-auto tweet-user-text">
                             <%= tweet.user.name %>
@@ -58,9 +56,9 @@
                     </div>
                 </div>
             <% end %>
-            <% else %>
-            <% end %>
         </div>
+    <% else %>
+    <% end %>
 </div>
 
 
