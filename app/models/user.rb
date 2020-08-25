@@ -33,20 +33,20 @@ class User < ApplicationRecord
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
-  
+
   # ====退会ユーザーがログインできないように====
   def active_for_authentication?
-    super && (self.withdrawal_status == false)
+    super && (withdrawal_status == false)
   end
   # =======================================
 
   # =====検索=====================================
   def User.search(search, user_or_tweet)
-      if user_or_tweet == "1"
-        User.where(['name LIKE ?', "%#{search}%"])
-      else
-        User.all
-      end
+    if user_or_tweet == "1"
+      User.where(['name LIKE ?', "%#{search}%"])
+    else
+      User.all
+    end
   end
   # ==============================================
 end
