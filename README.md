@@ -23,8 +23,7 @@
 ### 機能一覧
 - 機能一覧: https://docs.google.com/spreadsheets/d/1y23YFhdffXqusVazp7fWllyDBTJLHcVbdkQWFr9F2CM/edit?usp=sharing
 
-### AWSインフラ設計書
-https://docs.google.com/spreadsheets/d/1UJPYynEaeqlHu_X_rGchlu5f87lFuNeavIQlEw9wXxw/edit?usp=sharing
+### AWS
+- インフラ設計書: https://docs.google.com/spreadsheets/d/1UJPYynEaeqlHu_X_rGchlu5f87lFuNeavIQlEw9wXxw/edit?usp=sharing
 
-### AWS構成図
-https://drive.google.com/file/d/1SJk8pNJvWAMXL1uPbpT1ZoBUXXARFyfF/view?usp=sharing
+- 構成図:https://drive.google.com/file/d/1SJk8pNJvWAMXL1uPbpT1ZoBUXXARFyfF/view?usp=sharing
